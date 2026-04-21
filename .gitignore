@@ -1,0 +1,21 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Virtual envs
+.venv/
+env/
+venv/
+
+# Local data/outputs
+data/dataset_processed_new/
+data/
+dataset/graph_data/
+dataset/*.csv
+dataset/*.txt
+dataset_temp/
+old_data/
+fig/
+log/
+checkpoints/
+baseline/

@@ -1,0 +1,8 @@
+﻿torch
+pandas
+numpy
+scikit-learn
+tqdm
+fastdtw
+matplotlib
+hdbscan
