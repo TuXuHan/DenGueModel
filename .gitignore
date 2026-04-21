@@ -6,6 +6,7 @@ __pycache__/
 .venv/
 env/
 venv/
+.conda/
 
 # Local data/outputs
 data/dataset_processed_new/
