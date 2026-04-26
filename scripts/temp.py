@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv("dataset/all_processed_data_9box_nexty.csv")
+df = pd.read_csv("dataset/all_processed_data.csv")
 min_egg = df['egg_num'].min()
 print(f"Minimum Egg Count: {min_egg}")
 

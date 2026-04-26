@@ -1,12 +1,17 @@
 # Byte-compiled / cache
 __pycache__/
 *.py[cod]
+*$py.class
 
 # Virtual envs
-.venv/
 env/
 venv/
+.env
+.venv
+env.bak/
+venv.bak/
 .conda/
+ENV/
 
 # Local data/outputs
 data/dataset_processed_new/
@@ -20,3 +25,21 @@ fig/
 log/
 checkpoints/
 baseline/
+
+# Data files (To prevent pushing large files to GitHub)
+# data/
+# dataset/
+# *.csv
+# *.npy
+# *.txt
+
+# Model checkpoints and logs
+runs/
+*.pt
+*.pth
+*.ckpt
+logs/
+
+# IDEs
+.vscode/
+.idea/

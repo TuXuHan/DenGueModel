@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # Load your processed data
-df = pd.read_csv("dataset/all_processed_data_9box_nexty.csv")
+df = pd.read_csv("dataset/all_processed_data.csv")
 
 # Load your split files
 def load_ids(path):

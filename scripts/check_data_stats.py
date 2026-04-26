@@ -14,7 +14,7 @@ import config as cfg
 
 
 def main():
-    data_path = Path(cfg.DATA_DIR) / "all_processed_data_9box_nexty.csv"
+    data_path = Path(cfg.DATA_DIR) / "all_processed_data.csv"
     print("DATA_DIR:", cfg.DATA_DIR)
     print("Loading:", data_path)
     df = pd.read_csv(data_path)
