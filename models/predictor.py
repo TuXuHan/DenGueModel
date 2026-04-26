@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 import time
 from typing import Sequence, Tuple
 import torch

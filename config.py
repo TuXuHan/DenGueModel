@@ -56,6 +56,10 @@ MEO_COL = [
     "StationPressureMinimum",
     "AirTemperatureMinimum",
     "RelativeHumidityMinimum",
+    "idw_p1",
+    "idw_p2",
+    "idw_p05",
+    "lgbm_pred"
 ]
 
 # If processed data exists, infer static columns from file; otherwise fall back to legacy definition.
@@ -76,18 +80,13 @@ ST_COL = [
     "underpass",
     "watersupply_firehydrant",
 ]
-DIRS = ["B", "T", "L", "R", "RB", "RT", "LB", "LT"]
-
-
+DIRS = [] # Cancelled 9-box setting
 def build_static_columns_from_dirs():
-    st_cols = ST_COL.copy()
-    for grid_dir in DIRS:
-        st_cols += [f"{c}_{grid_dir}" for c in ST_COL]
-    return st_cols
+    return ST_COL.copy()
 
 
 def infer_static_columns_from_data():
-    sample_file = DATA_DIR / "all_processed_data_9box_nexty.csv"
+    sample_file = DATA_DIR / "all_processed_data.csv"
     if not sample_file.exists():
         return None
     df = pd.read_csv(sample_file, nrows=1)

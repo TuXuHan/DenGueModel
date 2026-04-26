@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 from typing import List, Sequence, Tuple, Dict
 
 import numpy as np
@@ -87,7 +87,7 @@ class StationDataset(Dataset):
 
         # --- 2. Load Master Data ---
         print(f"Loading Master Data for {mode}...")
-        df_all = pd.read_csv(self.data_root / "all_processed_data_9box_nexty.csv")
+        df_all = pd.read_csv(self.data_root / "all_processed_data.csv")
         
         # Sort is CRITICAL for history slicing [idx - prev : idx]
         # We assume rows are contiguous in time for each station

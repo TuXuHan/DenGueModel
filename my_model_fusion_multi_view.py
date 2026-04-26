@@ -40,11 +40,13 @@ st_col = ['watersupply_hole','well', 'sewage_hole', 'underwater_con', 'pumping',
        'watersupply_others', 'watersupply_value', 'food_poi', 'rainwater_hole',
        'river', 'drainname', 'sewage_well', 'gaugingstation', 'underpass', 'watersupply_firehydrant']
 st_col_all = st_col.copy()
-dirs = ['B', 'T', 'L', 'R', 'RB', 'RT', 'LB', 'LT']
-for grid_dir in dirs:
-    col_name = pd.Series(st_col.copy()) + '_'+grid_dir
-    col_name = col_name.tolist()
-    st_col_all+=col_name
+
+# 9-box settings cancelled
+# dirs = ['B', 'T', 'L', 'R', 'RB', 'RT', 'LB', 'LT']
+# for grid_dir in dirs:
+#     col_name = pd.Series(st_col.copy()) + '_'+grid_dir
+#     col_name = col_name.tolist()
+#     st_col_all+=col_name
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -91,7 +93,7 @@ class station_data(Dataset) :
     def __init__(self, mode='train') : #pred_slot
 #         self.target_unlabel = np.array(valid_index)[:,0].tolist()
 #         self.target_label = np.array(valid_index)[:,1:].tolist()
-        self.all_data = pd.read_csv('dataset_processed/all_processed_data_9box_nexty.csv')
+        self.all_data = pd.read_csv('dataset_processed/all_processed_data.csv')
         self.grid_df_neighbor = pd.read_csv('dataset_processed/grid_100neighbor_dist.csv')
         self.all_static_features = self.all_data[['id']+st_col_all].drop_duplicates().reset_index()
         
