@@ -1,7 +1,6 @@
 # Byte-compiled / cache
 __pycache__/
 *.py[cod]
-*$py.class
 
 # Virtual envs
 env/
