@@ -1,31 +1,22 @@
-# Byte-compiled / optimized / DLL files
+# Byte-compiled / cache
 __pycache__/
 *.py[cod]
-*$py.class
 
-# Data files (To prevent pushing large files to GitHub)
-data/
-dataset/
-*.csv
-*.npy
-*.txt
-
-# Model checkpoints and logs
-runs/
-*.pt
-*.pth
-*.ckpt
-logs/
-
-# Environments
-.env
-.venv
+# Virtual envs
+.venv/
 env/
 venv/
-ENV/
-env.bak/
-venv.bak/
+.conda/
 
-# IDEs
-.vscode/
-.idea/
+# Local data/outputs
+data/dataset_processed_new/
+data/
+dataset/graph_data/
+dataset/*.csv
+dataset/*.txt
+dataset_temp/
+old_data/
+fig/
+log/
+checkpoints/
+baseline/
