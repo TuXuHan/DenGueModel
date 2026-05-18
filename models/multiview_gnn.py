@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import torch.nn as nn
 
 import config as cfg
@@ -86,13 +86,12 @@ class MultiViewGNNBatch(nn.Module):
 
     def forward(self, hidden_GAT: torch.Tensor):
         batchsz, views, seq_len, embsz = hidden_GAT.shape
-        # For new graphs we do not stack 3 copies; use full node count.
-        node_num = seq_len
-        hidden = hidden_GAT.reshape((batchsz, views * seq_len, embsz))
+        # Compute self-attention for each view independently
+        hidden = hidden_GAT.reshape((batchsz * views, seq_len, embsz))
 
         hidden_self_att = self.multihead_attn(hidden)
         hidden_fuse1 = self.alpha * hidden_self_att + (1 - self.alpha) * hidden
-        hidden_fuse1 = hidden_fuse1.reshape(hidden_GAT.shape)
+        hidden_fuse1 = hidden_fuse1.reshape(batchsz, views, seq_len, embsz)
         hidden_fuse1 = hidden_fuse1.permute(1, 0, 2, 3)
 
         fusion_hidden = torch.zeros(hidden_fuse1[0].shape, device=cfg.DEVICE)

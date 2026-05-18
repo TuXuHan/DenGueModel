@@ -66,7 +66,7 @@ class AttentionLayer(nn.Module):
         else:
             p = self.p_const
         dis = dis_lab.to(dtype=logits.dtype).clamp_min(self.eps)
-        idw_log = -p * torch.log(dis)        # 等價但更穩、少一次 pow
+        idw_log = p * torch.log(dis)        # 等價但更穩、少一次 pow
         logits = logits + idw_log
         # optional:
         logits = logits.clamp(-50, 50)

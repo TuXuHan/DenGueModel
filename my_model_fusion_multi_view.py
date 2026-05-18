@@ -751,7 +751,7 @@ class model(nn.Module) :
             # torch.Size([128, 64]), torch.Size([128, 32]), torch.Size([128, 64])
             X_feat = torch.cat( [unlabel_data,temp_approximate,sp_approximate], dim=1 ) #torch.Size([128, 160])
 #             print('X_feat',X_feat.shape) #torch.Size([128, 160])
-            h_t = self.GRU(X_feat)
+            h_t = self.GRU(X_feat, h_t)
 #             print('h_t',h_t.shape) #torch.Size([128, 32])
         out = self.output_fc(h_t)
         # out = self.GRU_DE(h_t,h_t)

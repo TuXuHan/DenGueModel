@@ -216,7 +216,7 @@ class MultiViewPredictor(nn.Module):
         for _ in range(self.prev_slot):
             temp_approximate = F.relu(self.liner_t(h_t))
             X_feat = torch.cat([unlabel_data, temp_approximate, sp_approximate], dim=1)
-            h_t = self.GRU(X_feat)
+            h_t = self.GRU(X_feat, h_t)
         if profile:
             timers["gru_loop"] += _time_end(t0)
             total = sum(timers.values())
